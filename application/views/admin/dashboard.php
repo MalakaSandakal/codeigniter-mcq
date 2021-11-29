@@ -19,7 +19,7 @@
 			<p>Fullname: <?php echo $fname; ?></p>
 			<p>Email: <?php echo $email; ?></p>
 			<p>Password: <?php echo $password; ?></p>
-			<a href="<?php echo base_url(); ?>index.php/user/logout" class="btn btn-danger">Logout</a>
+			<a href="<?php echo base_url(); ?>admin/logout" class="btn btn-danger">Logout</a>
 		</div>
 	</div>
 </div>

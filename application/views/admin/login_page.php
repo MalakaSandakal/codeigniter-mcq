@@ -16,7 +16,7 @@
 		            </h3>
 		        </div>
 		    	<div class="panel-body">
-		        	<form method="POST" action="<?php echo base_url(); ?>index.php/user/login">
+		        	<form method="POST" action="<?php echo base_url(); ?>admin/login">
 		            	<fieldset>
 		                	<div class="form-group">
 		                    	<input class="form-control" placeholder="Email" type="email" name="email" required>

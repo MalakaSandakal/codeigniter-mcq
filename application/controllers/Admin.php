@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Admin extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('users_model');
+		$this->load->model('admin_model');
 	}
 
 	public function index(){
@@ -15,7 +15,7 @@ class User extends CI_Controller {
 
 		//restrict users to go back to login if session has been set
 		if($this->session->userdata('user')){
-			redirect('home');
+			redirect('dashboard');
 		}
 		else{
 			$this->load->view('admin/login_page');
@@ -29,11 +29,11 @@ class User extends CI_Controller {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		$data = $this->users_model->login($email, $password);
+		$data = $this->admin_model->login($email, $password);
 
 		if($data){
 			$this->session->set_userdata('user', $data);
-			redirect('home');
+			redirect('dashboard');
 		}
 		else{
 			header('location:'.base_url().$this->index());
@@ -41,16 +41,16 @@ class User extends CI_Controller {
 		} 
 	}
 
-	public function home(){
+	public function dashboard(){
 		//load session library
 		$this->load->library('session');
 
-		//restrict users to go to home if not logged in
+		//restrict users to go to dashboard if not logged in
 		if($this->session->userdata('user')){
-			$this->load->view('home');
+			$this->load->view('admin/dashboard');
 		}
 		else{
-			redirect('/');
+			redirect('/admin');
 		}
 		
 	}
@@ -59,7 +59,7 @@ class User extends CI_Controller {
 		//load session library
 		$this->load->library('session');
 		$this->session->unset_userdata('user');
-		redirect('/');
+		redirect('/admin');
 	}
 
 }

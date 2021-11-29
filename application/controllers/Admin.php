@@ -9,10 +9,8 @@ class Admin extends CI_Controller {
 		$this->load->model('admin_model');
 	}
 
-	public function index(){
-		//load session library
+	public function index(){		
 		$this->load->library('session');
-
 		//restrict users to go back to login if session has been set
 		if($this->session->userdata('user')){
 			redirect('dashboard');
@@ -36,8 +34,8 @@ class Admin extends CI_Controller {
 			redirect('dashboard');
 		}
 		else{
-			header('location:'.base_url().$this->index());
-			$this->session->set_flashdata('error','Invalid login. User not found');
+			// header('location:'.base_url().$this->index());
+			// $this->session->set_flashdata('error','Invalid login. User not found');
 		} 
 	}
 

@@ -8,5 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h1>Welcome</h1>
+	<a href="<?php echo base_url(); ?>user/secondpage" class="btn btn-danger">Logout</a>
 </body>
 </html>
